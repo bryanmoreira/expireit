@@ -1,0 +1,3 @@
+<div>
+    {{ $text ?? $message }}
+</div>
