@@ -1,13 +1,14 @@
-<div class="flex flex-col gap-6 max-w-lg">
+<div class="flex flex-col gap-6 max-w-lg" xmlns:flux="http://www.w3.org/1999/html">
     <x-auth-header
         :title="__('Create a link')"
         :description="__('Create a link to share your message')"
     />
 
     <form class="flex flex-col gap-6 max-w-lg">
-        <flux:input
+        <flux:textarea
             wire:model="text"
             type="text"
+            rows="auto"
             label="Type your message"
             description="This will be the message that the person with the link will see."
         />

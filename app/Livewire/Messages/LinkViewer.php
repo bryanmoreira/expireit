@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Messages;
 
 use App\Models\SecretLink;
 use Illuminate\View\View;
@@ -29,6 +29,6 @@ class LinkViewer extends Component
 
     public function render(): View
     {
-        return view('livewire.link-viewer');
+        return view('livewire.messages.link-viewer')->layout('components.layouts.blank');
     }
 }

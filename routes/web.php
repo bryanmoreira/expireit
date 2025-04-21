@@ -1,7 +1,7 @@
 <?php
 
-use App\Livewire\CreateLink;
-use App\Livewire\LinkViewer;
+use App\Livewire\Messages\CreateLink;
+use App\Livewire\Messages\LinkViewer;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;

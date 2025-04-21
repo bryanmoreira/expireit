@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Messages;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +17,7 @@ class CreateLink extends Component
     public function createLink(): void
     {
         $this->validate([
-            'text' => 'required|string|max:255',
+            'text' => 'required|string|max:1024',
             'duration' => 'required|integer|min:1|max:60',
         ]);
 
@@ -36,6 +36,6 @@ class CreateLink extends Component
 
     public function render(): View
     {
-        return view('livewire.create-link');
+        return view('livewire.messages.create-link');
     }
 }
