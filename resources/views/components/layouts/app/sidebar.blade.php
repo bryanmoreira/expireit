@@ -20,6 +20,14 @@
 
             <flux:spacer />
 
+            @if(auth()->user()->is_admin)
+                <flux:navlist variant="outline">
+                    <flux:navlist.group :heading="__('Administration')" class="grid">
+                        <flux:navlist.item icon="user-group" :href="route('users.list')" :current="request()->routeIs('users.list')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
+                    </flux:navlist.group>
+                </flux:navlist>
+            @endif
+
             <!-- Desktop User Menu -->
             <flux:dropdown position="bottom" align="start">
                 <flux:profile
