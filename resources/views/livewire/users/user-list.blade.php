@@ -23,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($users as $user)
+        @foreach($users as $i => $user)
             <tr class="border-b text-gray-300 whitespace-nowrap dark:text-gray-300">
                 <th scope="row" class="px-6 py-4 font-medium">
                     {{ $user->id }}
@@ -41,7 +41,22 @@
                     {{ $user->updated_at }}
                 </td>
                 <td class="px-6 py-4">
-                    <flux:switch wire:click="toggleUserActivity({{ $user->id }})" />
+                    @if($user->is_admin)
+                        <flux:switch
+                            wire:click="toggleUserActivity({{ $user->id }})"
+                            checked
+                            disabled
+                        />
+                    @elseif($user->active)
+                        <flux:switch
+                            wire:click="toggleUserActivity({{ $user->id }})"
+                            checked
+                        />
+                    @else
+                        <flux:switch
+                            wire:click="toggleUserActivity({{ $user->id }})"
+                        />
+                    @endif
                 </td>
             </tr>
         @endforeach

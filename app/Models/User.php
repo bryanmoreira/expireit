@@ -63,4 +63,9 @@ class User extends Authenticatable
     {
        return $this->hasMany(SecretLink::class);
     }
+
+    public function isActive(): bool
+    {
+        return $this->active;
+    }
 }

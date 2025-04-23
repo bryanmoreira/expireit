@@ -27,6 +27,13 @@ class UserList extends Component
         }
     }
 
+    public function getActivity(int $id)
+    {
+        $user = User::find($id);
+
+        return $user->active;
+    }
+
     public function render(): View
     {
         return view('livewire.users.user-list');

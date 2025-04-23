@@ -40,6 +40,15 @@ class Login extends Component
             ]);
         }
 
+        if(Auth::user()->isActive() === false) {
+            Auth::logout();
+            RateLimiter::hit($this->throttleKey());
+
+            throw ValidationException::withMessages([
+                'email' => __('Your account is inactive. Please contact support.'),
+            ]);
+        }
+
         RateLimiter::clear($this->throttleKey());
         Session::regenerate();
 
