@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
 
+        @vite('resources/css/app.css')
         <!-- Styles -->
         <style>
             /*! tailwindcss v4.0.14 | MIT License | https://tailwindcss.com */
@@ -268,10 +269,12 @@
         </div>
 
         @if (session('error'))
-            <div class="mt-4 px-4 py-2 rounded font-semibold text-red-500 dark:text-red-400 bg-red-100 dark:bg-red-900">
-                {{ session('error') }}
-            </div>
+            <flux:error
+                class="text-red-400"
+                :message="session('error')"
+            />
         @endif
+
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
